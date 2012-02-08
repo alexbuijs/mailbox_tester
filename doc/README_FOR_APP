@@ -1,0 +1,72 @@
+This app should do the following:
+
+- heenberichten van de afgelopen dag ophalen uit productie en één voor één inschieten in de webservice op acceptatie
+- tabellen productie met acceptatie vergelijken voor heen en retour berichten
+- scheduled task om dit eens per dag uit te voeren
+- resultaten in webpagina weergeven
+
+Attributen:
+
+PRD:
+id                      : deze zal nooit overeenkomen
+identificatieAanlevering: V
+codeEI                  : V
+zender                  : V
+ontvanger               : V
+berichtnaam             : V
+bericht                 : deze bestaat niet in de acc db
+gelezen                 : deze bestaat niet in de acc db
+gearchiveerd            : deze bestaat niet in de acc db
+betreftRetourbericht    : V
+postbusId               : V
+aangemaaktOp            : deze zal nooit overeenkomen
+aangemaaktDoor          : deze zal nooit overeenkomen
+gewijzigdOp             : deze zal nooit overeenkomen
+gewijzigdDoor           : deze zal nooit overeenkomen
+versienummer            : deze bestaat niet in de acc db
+volledigeinhoud         : deze bestaat niet in de acc db
+zenderType              : V
+ontvangerType           : V
+externId                : V
+status                  : V
+versie                  : deze bestaat niet in de acc db
+tekenset                : V
+bericht_uuid            : V
+bericht_type            : V
+bericht_versie          : V
+conversatie_uuid        : V
+referentie_uuid         : V
+beschrijving            : V
+ontvanger_identificatie : V
+zender_identificatie    : V
+verzonden_op            : deze zal nooit overeenkomen
+
+ACC:
+id                      : deze zal nooit overeenkomen
+identification          : V
+codeEI                  : V
+senderUzovi             : V
+receiverUzovi           : V
+retourMessage           : V
+postbusId               : V
+creationDate            : deze zal nooit overeenkomen
+createdBy               : deze zal nooit overeenkomen
+changedDate             : deze zal nooit overeenkomen
+changedBy               : deze zal nooit overeenkomen
+senderType              : V
+receiverType            : V
+externId                : V
+status                  : V
+characterSet            : V
+messageId               : V
+messageName             : V
+messageType             : V
+messageVersion          : V
+converationId           : V
+refMessageId            : V
+messageDescription      : V
+sender                  : V
+receiver                : V
+sentDate                : deze zal nooit overeenkomen
+tennant_sender          : deze bestaat niet in de prd db
+tennant_receiver        : deze bestaat niet in de prd db

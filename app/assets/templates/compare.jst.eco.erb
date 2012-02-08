@@ -1,0 +1,29 @@
+<div class="modal-header">
+  <a class="close" data-dismiss="modal">×</a>
+  <h3>Vergelijk bericht '<%%= @id %>'</h3>
+</div>
+<div class="modal-body">
+  <table class="table table-striped table-condensed">
+    <thead>
+      <tr>
+        <th/>
+        <th>Productie</th>
+        <th>Acceptatie</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Processor::COMPARE_ATTRS.each do |prd_attr, acc_attr| %>
+        <%% prd_attr = @prd.get('<%= prd_attr %>') or 'Undefined' %>
+        <%% acc_attr = @acc.get('<%= acc_attr %>') or 'Undefined' %>
+        <tr <%%= "class='error'" unless prd_attr is acc_attr %>>
+          <th><%= acc_attr %></th>
+          <td><%%= prd_attr %></td>
+          <td><%%= acc_attr %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="modal-footer">
+  <a class="btn" data-dismiss="modal">Sluiten</a>
+</div>

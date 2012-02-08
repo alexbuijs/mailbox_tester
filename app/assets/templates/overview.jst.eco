@@ -1,0 +1,10 @@
+<div class="span8 offset2">
+  <div class="info well">
+    <h4>Totaal aantal originele berichten: <%= @statistics.get('totalMessages') %> (heen: <%= @statistics.get('totalInMessages') %>/retour: <%= @statistics.get('totalOutMessages') %>)</h4>
+    <h4>Totaal aantal gematchte berichten: <%= @statistics.get('totalMatches') %> (heen: <%= @statistics.get('totalInMatches') %>/retour: <%= @statistics.get('totalOutMatches') %>)</h4>
+    <h4>Totaal aantal mismatches: <%= @statistics.get('totalMismatches') %> (<%= if @statistics.get('totalMismatches') == 0 then '0' else Math.round((@statistics.get('totalMismatches')/@statistics.get('totalMatches')) * 100) %>%)</h4>
+  </div>
+</div>
+<div class="span2 offset5">
+  <a class="show-messages btn" <%= "style='display:none;'" unless @statistics.get('totalMismatches') > 1%>>Toon mismatches</a>
+</div>

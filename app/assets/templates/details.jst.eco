@@ -1,0 +1,13 @@
+<div class="span8 offset2">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Message ID</th>
+        <th>Message Type</th>
+      </tr>
+    </thead>
+    <tbody/>
+  </table>
+</div>
+<div id="compare-modal" class="modal hide fade" style="display:none;">
+</div>

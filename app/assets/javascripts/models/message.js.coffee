@@ -1,0 +1,1 @@
+class App.Message extends Backbone.Model

@@ -1,0 +1,15 @@
+<div class="span2">
+  <div class="pager">
+    <a class="previous">&larr; Vorige</a>
+  </div>
+</div>
+<div class="span8">
+  <div class="date-label label label-info<%= ' link' if @currentDate < new Date().setHours(0,0,0,0) %>">
+    Resultaten van <%= $.datepicker.formatDate('DD d MM yy', @currentDate); %>
+  </div>
+</div>
+<div class="span2">
+  <div class="pager">
+    <a class="next<%= ' invisible' unless @currentDate < new Date().setHours(0,0,0,0) %>">Volgende &rarr;</a>
+  </div>
+</div>

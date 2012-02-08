@@ -1,0 +1,2 @@
+<td><a data-toggle="modal" class="compare"><%= @message.get('message_id') %></a></td>
+<td><%= @message.get('message_type') %></td>
