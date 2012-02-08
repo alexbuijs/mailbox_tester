@@ -1,4 +1,4 @@
-require "bundler/capistrano"
+require 'bundler/capistrano'
 load 'deploy/assets'
 
 set :application, "mailbox_tester"
@@ -20,14 +20,27 @@ set :rvm_type, :user
 
 server "CVZLACT001", :app, :web, :db, :primary => true
 
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
+set :rails_env,      "production"
+set :passenger_port, 9000
+set :passenger_cmd,  "bundle exec passenger"
 
-# If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+namespace :deploy do
+  task :start, :roles => :app, :except => { :no_release => true } do
+    run "cd #{current_path} && #{passenger_cmd} start -e #{rails_env} -p #{passenger_port} -d"
+  end
+
+  task :stop, :roles => :app, :except => { :no_release => true } do
+    run "cd #{current_path} && #{passenger_cmd} stop -p #{passenger_port}"
+  end
+
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run <<-CMD
+      if [[ -f #{current_path}/tmp/pids/passenger.#{passenger_port}.pid ]];
+      then
+        cd #{current_path} && #{passenger_cmd} stop -p #{passenger_port};
+      fi
+    CMD
+
+    run "cd #{current_path} && #{passenger_cmd} start -e #{rails_env} -p #{passenger_port} -d"
+  end
+end
