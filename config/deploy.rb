@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+load 'deploy/assets'
 
 set :application, "mailbox_tester"
 set :repository,  "https://github.com/alexbuijs/mailbox_tester.git"
@@ -10,6 +11,8 @@ set :deploy_to, "/home/cvzprj/#{application}"
 set :user, "cvzprj"
 set :password, "prjcvz99"
 set :use_sudo, false
+
+default_environment['LD_LIBRARY_PATH'] = "/usr/local/lib"
 
 $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
 require "rvm/capistrano"                  # Load RVM's capistrano plugin.
