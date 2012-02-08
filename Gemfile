@@ -26,7 +26,7 @@ gem 'backbone-on-rails'
 # Database connections
 gem 'tiny_tds'
 gem 'activerecord-sqlserver-adapter'
-#gem 'mysql2'
+gem 'mysql2'
 gem 'httparty'
 
 group :development do
