@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# /etc/crontab:
+# 0 0 * * * cvzprj /home/cvzprj/mailbox_tester/current/lib/process_messages.cron
+
+cd /home/cvzprj/mailbox_tester/current
+bundle exec rake process_messages RAILS_ENV=production
