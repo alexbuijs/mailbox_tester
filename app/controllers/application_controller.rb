@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
           Date.parse("#{params[:year].to_i}-#{params[:month].to_i}-#{params[:day].to_i}") :
           Date.today
         respond_with({
+          date: date,
           totalInMessages: ProductieMessage.in.from_date(date).size,
           totalOutMessages: ProductieMessage.out.from_date(date).size,
           totalInMatches: Result.in.from_date(date).size,

@@ -6,5 +6,5 @@
   </div>
 </div>
 <div class="span2 offset5">
-  <a class="show-messages btn" <%= "style='display:none;'" unless @statistics.get('totalMismatches') > 1%>>Toon mismatches</a>
+  <a class="show-messages btn" <%= "style='display:none;'" unless @statistics.get('totalMismatches') > 0%>>Toon mismatches</a>
 </div>
