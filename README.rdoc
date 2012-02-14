@@ -8,6 +8,7 @@
 == Attributes to compare:
 
 * PRD:
+
   id                      : value will always be different
   identificatieAanlevering: V
   codeEI                  : V
@@ -42,6 +43,7 @@
   verzonden_op            : value will always be different
 
 * ACC:
+
   id                      : value will always be different
   identification          : V
   codeEI                  : V
