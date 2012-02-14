@@ -1,7 +1,7 @@
 require 'bundler/capistrano'
+$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
 require "rvm/capistrano"
 
-$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
 default_environment['LD_LIBRARY_PATH'] = "/usr/local/lib"
 
 server "CVZLACT001", :app, :web, :db, :primary => true
