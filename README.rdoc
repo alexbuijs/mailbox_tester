@@ -1,13 +1,13 @@
 == This app should do the following:
 
-- retrieve yesterdays in messages from the prd environment and use it to make a soap call to the webservice on the acc environment
+- retrieve yesterdays in messages from the prd environment and use them to make a soap call to the webservice on the acc environment
 - compare in and out messages as they are stored in the acc and prd databases
 - create a daily task to process new messages automatically
-- show the results in a web app: http://cvzlact001:9000/
+- show the results in a web app: http://cvzlact001:9000
 
 == Attributes to compare:
 
-1. PRD:
+* PRD:
   id                      : value will always be different
   identificatieAanlevering: V
   codeEI                  : V
@@ -41,7 +41,7 @@
   zender_identificatie    : V
   verzonden_op            : value will always be different
 
-2. ACC:
+* ACC:
   id                      : value will always be different
   identification          : V
   codeEI                  : V
