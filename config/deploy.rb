@@ -1,26 +1,23 @@
 require 'bundler/capistrano'
-load 'deploy/assets'
+require "rvm/capistrano"
 
 $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
-require "rvm/capistrano"
-set :rvm_type, :user
-
 default_environment['LD_LIBRARY_PATH'] = "/usr/local/lib"
-
-set :application, "mailbox_tester"
-set :repository,  "https://github.com/alexbuijs/mailbox_tester.git"
-set :normalize_asset_timestamps, false
-set :scm, :git
-set :deploy_to, "/home/cvzprj/#{application}"
-set :user, "cvzprj"
-set :password, "prjcvz99"
-set :use_sudo, false
 
 server "CVZLACT001", :app, :web, :db, :primary => true
 
-set :rails_env,      "production"
-set :passenger_port, 9000
-set :passenger_cmd,  "bundle exec passenger"
+set :application,                "mailbox_tester"
+set :repository,                 "https://github.com/alexbuijs/mailbox_tester.git"
+set :normalize_asset_timestamps, false
+set :scm,                        :git
+set :deploy_to,                  "/home/cvzprj/#{application}"
+set :user,                       "cvzprj"
+set :password,                   "prjcvz99"
+set :use_sudo,                   false
+set :rvm_type,                   :user
+set :rails_env,                  "production"
+set :passenger_port,             9000
+set :passenger_cmd,              "bundle exec passenger"
 
 namespace :deploy do
   task :start, :roles => :app, :except => { :no_release => true } do
@@ -38,7 +35,6 @@ namespace :deploy do
         cd #{current_path} && #{passenger_cmd} stop -p #{passenger_port};
       fi
     CMD
-
     run "cd #{current_path} && #{passenger_cmd} start -e #{rails_env} -p #{passenger_port} -d"
   end
 end
