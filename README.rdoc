@@ -7,8 +7,7 @@
 
 == Attributes to compare:
 
-* PRD:
-
+PRD:
   id                      : value will always be different
   identificatieAanlevering: V
   codeEI                  : V
@@ -42,8 +41,7 @@
   zender_identificatie    : V
   verzonden_op            : value will always be different
 
-* ACC:
-
+ACC:
   id                      : value will always be different
   identification          : V
   codeEI                  : V
