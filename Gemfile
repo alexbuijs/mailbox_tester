@@ -27,7 +27,7 @@ gem 'backbone-on-rails'
 gem 'tiny_tds'
 gem 'activerecord-sqlserver-adapter'
 gem 'mysql2'
-gem 'httparty'
+gem 'savon'
 
 group :development do
   gem 'annotate', '~> 2.4.1.beta'
