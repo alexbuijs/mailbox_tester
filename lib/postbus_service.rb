@@ -29,18 +29,32 @@ class PostbusService
   end
 
   def send_message!
-    response = @client.request :urn, 'SendMessage' do
-      soap.body = {
-        'urn:EIMessagesWrapper' => {
-          'urn:EIMessage' => {
-            'urn:ID'      => id,
-            'urn:Name'    => name,
-            'urn:Message' => message
+    begin
+      response = @client.request :urn, 'SendMessage' do
+        soap.body = {
+          'urn:EIMessagesWrapper' => {
+            'urn:EIMessage' => {
+              'urn:ID'      => id,
+              'urn:Name'    => name,
+              'urn:Message' => message
+            }
           }
         }
-      }
+      end
+    rescue Exception => e
+      return e.message
     end
 
-    response.success? && !(response.to_hash[:send_message_response][:ei_validatie_wrapper].has_key?(:error_message) rescue true)
+    validation = response.to_hash[:send_message_response][:ei_validatie_wrapper] rescue 'Unexpected response'
+    success    = validation.is_a?(Hash) && validation.has_key?(:source_id)
+    error      = validation.is_a?(Hash) && validation.has_key?(:error_message)
+
+    if validation.is_a?(String)
+      validation
+    elsif error
+      validation[:error_message]
+    elsif !success
+      'Unknown failure'
+    end
   end
 end

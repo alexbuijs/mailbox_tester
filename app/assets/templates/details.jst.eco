@@ -4,6 +4,7 @@
       <tr>
         <th>Message ID</th>
         <th>Message Type</th>
+        <th>Message Error</th>
       </tr>
     </thead>
     <tbody/>

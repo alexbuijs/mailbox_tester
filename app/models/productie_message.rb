@@ -54,8 +54,7 @@ class ProductieMessage < ActiveRecord::Base
   scope :out, where(codeEI: EI_CODES.values)
 
   scope :from_date, lambda { |date|
-    where("(gewijzigdOp >= :date AND gewijzigdOp < :tomorrow) OR \
-          (gewijzigdOp IS NULL AND aangemaaktOp >= :date AND aangemaaktOp < :tomorrow)",
+    where("aangemaaktOp >= :date AND aangemaaktOp < :tomorrow",
     date: date, tomorrow: date + 1.day)
   }
 

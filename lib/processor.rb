@@ -28,11 +28,9 @@ class Processor
     batch = get_new_prd_messages(date, processed, type, limit)
     batch.each_with_index do |prd_message, i|
       p "Processed #{i} from a total of #{batch.size} #{type} messages..." if i % 100 == 0
-      success = call_postbus_service(prd_message) if type == :in
-      if success || type == :out
-        identical = compare_stored_messages(prd_message)
-        save_result(prd_message, identical, date, type)
-      end
+      error = call_postbus_service(prd_message)
+      identical = compare_stored_messages(prd_message) if error.nil?
+      save_result(prd_message, identical, error, date, type)
     end
   end
 
@@ -50,27 +48,24 @@ class Processor
   end
 
   def self.call_postbus_service(prd_message)
-    begin
-      PostbusService.new(prd_message).send_message!
-    rescue Savon::Error => error
-      Rails.logger.error error
-      false
-    end
+    PostbusService.new(prd_message).send_message!
   end
 
   def self.compare_stored_messages(prd_message)
     acc_message = AcceptatieMessage.by_id(prd_message.identificatieAanlevering)
+
     COMPARE_ATTRS.each do |k,v|
       break unless prd_message.send(k) == acc_message.send(v)
     end if acc_message
   end
 
-  def self.save_result(prd_message, identical, date, type)
+  def self.save_result(prd_message, identical, error, date, type)
     Result.create({
       message_id: prd_message.identificatieAanlevering,
       message_type: type,
       message_date: date,
-      identical: !!identical
+      identical: !!identical,
+      error: error
     })
   end
 end

@@ -66,6 +66,11 @@ tr.error td {
   color: #B94A48;
 }
 
+td {
+  max-width: 250px;
+  word-wrap: break-word;
+}
+
 .show-grid {
   margin-top: 10px;
   margin-bottom: 20px;

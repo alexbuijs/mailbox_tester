@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <% Processor::COMPARE_ATTRS.each do |prd_attr, acc_attr| %>
+      <% Processor::COMPARE_ATTRS.merge({:status => :status}).each do |prd_attr, acc_attr| %>
         <%% prd_attr = @prd.get('<%= prd_attr %>') or 'Undefined' %>
         <%% acc_attr = @acc.get('<%= acc_attr %>') or 'Undefined' %>
         <tr <%%= "class='error'" unless prd_attr is acc_attr %>>
