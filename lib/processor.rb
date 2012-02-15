@@ -7,7 +7,7 @@ class Processor
     :zender                  => :senderUzovi,
     :ontvanger               => :receiverUzovi,
     :berichtnaam             => :messageName,
-    #:betreftRetourbericht    => :retourMessage,
+    :betreftRetourbericht    => :retourMessage,
     :postbusId               => :postbusId,
     :zenderType              => :senderType,
     :ontvangerType           => :receiverType,

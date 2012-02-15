@@ -71,6 +71,45 @@ ACC:
   tennant_sender          : attribute doesn't exist in prd db
   tennant_receiver        : attribute doesn't exist in prd db
 
+== Attribute Mapping:
+
+  PRD:                       ACC:
+  content                 => content
+  codeEI                  => codeEI
+  zender                  => senderUzovi
+  ontvanger               => receiverUzovi
+  berichtnaam             => messageName
+  betreftRetourbericht    => retourMessage
+  postbusId               => postbusId
+  zenderType              => senderType
+  ontvangerType           => receiverType
+  externId                => externId
+  tekenset                => characterSet
+  bericht_uuid            => messageId
+  bericht_type            => messageType
+  bericht_versie          => messageVersion
+  conversatie_uuid        => converationId
+  referentie_uuid         => refMessageId
+  beschrijving            => messageDescription
+  ontvanger_identificatie => receiver
+  zender_identificatie    => sender
+
+== Sender Mapping
+
+Each sender has to use it's own password to get access to the acc webservice. The password of the sender is
+determined based on the following (possibly incomplete) mapping:
+
+  Uzovi:                           Webservice username and password:
+  5503,5504,5510,5513,5514,5521 => Achmea-portaalgebruiker
+  5506,5509,5511,5515           => Agis-portaalgebruiker
+  5518,5523,5525,5526,5529,5531 => CZ-portaalgebruiker
+  5502                          => DeFriesland-portaalgebruiker
+  5519,5522                     => DSW-portaalgebruiker
+  5501,5505,5507                => Menzis-portaalgebruiker
+  5532                          => Salland-portaalgebruiker
+
+In all other cases, 'CVZ-portaalgebruiker' is used.
+
 == Cron Task:
 
 Add this line to /etc/crontab:
