@@ -31,6 +31,7 @@
 #  tennant_sender     :string(255)
 #  tennant_receiver   :string(255)
 #
+require "base64"
 
 class AcceptatieMessage < ActiveRecord::Base
   establish_connection :acceptatie_database
@@ -59,7 +60,7 @@ class AcceptatieMessage < ActiveRecord::Base
   end
 
   def content
-    acceptatie_message_content.try(:volledigeInhoud)
+    Base64.decode64 acceptatie_message_content.try(:volledigeInhoud)
   end
 
   def return_message
