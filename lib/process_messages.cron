@@ -1,8 +1,10 @@
 #!/bin/bash
-
 # /etc/crontab:
-# 0 0 * * * cvzprj /home/cvzprj/mailbox_tester/current/lib/process_messages.cron
+# 0 0 * * * cvzprj /bin/bash /home/cvzprj/mailbox_tester/current/lib/process_messages.cron > /home/cvzprj/mailbox_tester/shared/log/cron.log 2>&1
 
 export LD_LIBRARY_PATH=/usr/local/lib
+export HOME=/home/cvzprj
+[[ -s "/home/cvzprj/.rvm/scripts/rvm" ]] && source "/home/cvzprj/.rvm/scripts/rvm"
+
 cd /home/cvzprj/mailbox_tester/current
 bundle exec rake process_messages RAILS_ENV=production
