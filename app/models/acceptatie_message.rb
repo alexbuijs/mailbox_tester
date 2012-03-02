@@ -60,7 +60,7 @@ class AcceptatieMessage < ActiveRecord::Base
   end
 
   def content
-    Base64.decode64 acceptatie_message_content.try(:volledigeInhoud)
+    Base64.decode64 acceptatie_message_content.try(:volledigeInhoud) rescue nil
   end
 
   def return_message
