@@ -67,7 +67,7 @@ class ProductieMessage < ActiveRecord::Base
   end
 
   def content
-    productie_message_content.try(:volledigeInhoud)
+    productie_message_content.try(:volledigeInhoud).gsub(/\r/,'') rescue nil
   end
 
   def return_message
