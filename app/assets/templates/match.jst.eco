@@ -4,8 +4,9 @@
 
 <div class="span8 offset2">
   <div class="alert alert-info" style="display:none;">
-    Berichten worden uit de productie omgeving opgehaald, ingeschoten op de acceptatie omgeving
-    en het resultaat wordt vergeleken. <strong>Dit kan erg lang duren!</strong>
+    Nog niet eerder vergeleken berichten worden uit de productie omgeving opgehaald,
+    ingeschoten op de acceptatie omgeving en het resultaat wordt vergeleken.
+    <strong>Dit kan erg lang duren!</strong>
     <p/>
     <div class="progress progress-info progress-striped active">
       <div class="bar" style="width: 100%;"></div>
