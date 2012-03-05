@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
   end
 
   def match
-    date = DateTime.parse("#{params[:year].to_i}-#{params[:month].to_i}-#{params[:day].to_i}").in_time_zone
+    date = Time.parse("#{params[:year].to_i}-#{params[:month].to_i}-#{params[:day].to_i}")
     Processor.process_new_messages(:in, date)
     Processor.process_new_messages(:out, date)
     render :nothing => true

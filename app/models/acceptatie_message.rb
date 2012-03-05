@@ -52,7 +52,7 @@ class AcceptatieMessage < ActiveRecord::Base
 
   scope :from_date, lambda { |date|
     where("(creationDate >= :date AND creationDate < :tomorrow)",
-    date: date, tomorrow: date + 1)
+    date: date, tomorrow: date + 1.day)
   }
 
   def self.by_id(id)

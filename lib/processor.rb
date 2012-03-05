@@ -23,7 +23,7 @@ class Processor
     :zender_identificatie    => :sender
   }
 
-  def self.process_new_messages(type, date=Date.yesterday, limit=nil)
+  def self.process_new_messages(type, date=Date.yesterday.to_time, limit=nil)
     processed = get_processed_messages(date, type)
     batch = get_new_prd_messages(date, processed, type, limit)
     batch.each_with_index do |prd_message, i|
