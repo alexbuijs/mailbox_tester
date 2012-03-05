@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
     respond_to do |format|
       format.json do
         date = params[:year] && params[:month] && params[:day] ? 
-          Date.parse("#{params[:year].to_i}-#{params[:month].to_i}-#{params[:day].to_i}") :
-          Date.today
+          Time.parse("#{params[:year].to_i}-#{params[:month].to_i}-#{params[:day].to_i}") :
+          Date.today.to_time
         respond_with({
           date: date,
           totalInMessages: ProductieMessage.in.from_date(date).size,
