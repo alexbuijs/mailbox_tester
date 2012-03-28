@@ -15,6 +15,6 @@ class App.DetailsView extends Backbone.View
 
   renderMessages: (messages) ->
     @.$('table tbody').empty()
-    for message in messages.models
+    for message in messages.models[0...100]
       view = new App.MessageView(model: message)
       @.$('table tbody').append view.render().el
