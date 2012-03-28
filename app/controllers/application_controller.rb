@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     respond_to do |format|
       format.json do
         date = Time.parse("#{params[:year].to_i}-#{params[:month].to_i}-#{params[:day].to_i}")
-        respond_with Result.mismatch.from_date(date).scoped
+        respond_with Result.mismatch.from_date(date).scoped.limit(100)
       end
       format.html { render :index }
     end
