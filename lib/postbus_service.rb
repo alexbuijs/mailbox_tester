@@ -7,13 +7,15 @@ class PostbusService
     @message = prd_message.content
 
     uzovi = case prd_message.zender.to_i
-    when 5503,5504,5510,5513,5514,5521 then 'Achmea'
-    when 5506,5509,5511,5515           then 'Agis'
-    when 5518,5523,5525,5526,5529,5531 then 'CZ'
-    when 5502                          then 'DeFriesland'
-    when 5519,5522                     then 'DSW'
-    when 5501,5505,5507                then 'Menzis'
-    when 5532                          then 'Salland'
+    when 5503,5504,5510,5513,5514,5521,5000 then 'Achmea'
+    when 5506,5509,5511,5515                then 'Agis'
+    when 5518,5523,5525,5526,5529,5531      then 'CZ'
+    when 5502                               then 'DeFriesland'
+    when 5519,5522                          then 'DSW'
+    when 5501,5505,5507                     then 'Menzis'
+    when 5532                               then 'Salland'
+    when 5516,5517                          then 'ZorgenZekerheid'
+    when 5508,5512,5520,5524,5527,5528,5530 then 'UVIT'
     else 'CVZ'
     end
     portal_user = "#{uzovi}-portaalgebruiker"

@@ -100,14 +100,15 @@ Each sender has to use it's own password to get access to the acc webservice. Th
 determined based on the following (possibly incomplete) mapping:
 
   Uzovi:                           Webservice username and password:
-  5503,5504,5510,5513,5514,5521 => Achmea-portaalgebruiker
-  5506,5509,5511,5515           => Agis-portaalgebruiker
-  5518,5523,5525,5526,5529,5531 => CZ-portaalgebruiker
-  5502                          => DeFriesland-portaalgebruiker
-  5519,5522                     => DSW-portaalgebruiker
-  5501,5505,5507                => Menzis-portaalgebruiker
-  5532                          => Salland-portaalgebruiker
-
+  5503,5504,5510,5513,5514,5521,5000 => Achmea-portaalgebruiker
+  5506,5509,5511,5515                => Agis-portaalgebruiker
+  5518,5523,5525,5526,5529,5531      => CZ-portaalgebruiker
+  5502                               => DeFriesland-portaalgebruiker
+  5519,5522                          => DSW-portaalgebruiker
+  5501,5505,5507                     => Menzis-portaalgebruiker
+  5532                               => Salland-portaalgebruiker
+  5516,5517                          => ZorgenZekerheid
+  5508,5512,5520,5524,5527,5528,5530 => UVIT
 In all other cases, 'CVZ-portaalgebruiker' is used.
 
 == Cron Task:
