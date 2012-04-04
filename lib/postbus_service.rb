@@ -14,7 +14,7 @@ class PostbusService
     when 5519,5522                          then 'DSW'
     when 5501,5505,5507                     then 'Menzis'
     when 5532                               then 'Salland'
-    when 5516,5517                          then 'ZorgenZekerheid'
+    when 5516,5517                          then 'ZorgZekerheid'
     when 5508,5512,5520,5524,5527,5528,5530 then 'UVIT'
     else 'CVZ'
     end
