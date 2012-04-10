@@ -66,6 +66,10 @@ class ProductieMessage < ActiveRecord::Base
     self.read_attribute(:bericht_type).gsub(/_/, '') rescue nil
   end
 
+  def betreftRetourbericht
+    self.read_attribute(:betreftRetourbericht).gsub(/\x00/, '') rescue nil
+  end
+
   def self.by_id(id)
     where(identificatieAanlevering: id).first
   end
