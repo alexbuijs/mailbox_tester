@@ -62,12 +62,16 @@ class ProductieMessage < ActiveRecord::Base
     where("identificatieAanlevering NOT IN (?)", message_ids)
   }
 
+  def bericht_type
+    self.read_attribute(:bericht_type).gsub(/_/, '') rescue nil
+  end
+
   def self.by_id(id)
     where(identificatieAanlevering: id).first
   end
 
   def content
-    productie_message_content.try(:volledigeInhoud).gsub(/\r/,'') rescue nil
+    productie_message_content.try(:volledigeInhoud).gsub(/\r/, '') rescue nil
   end
 
   def return_message
