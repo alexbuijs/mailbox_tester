@@ -47,6 +47,7 @@ end
 gem 'passenger'
 
 # Deploy with Capistrano
+gem 'bundler'
 gem 'capistrano'
 gem 'rvm-capistrano'
 

@@ -169,6 +169,7 @@ DEPENDENCIES
   annotate (~> 2.4.1.beta)
   awesome_print
   backbone-on-rails
+  bundler
   capistrano
   coffee-rails (~> 3.2.1)
   jquery-rails
