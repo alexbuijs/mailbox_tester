@@ -1,7 +1,3 @@
-require 'bundler/capistrano'
-$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
-require "rvm/capistrano"
-
 default_environment['LD_LIBRARY_PATH'] = "/usr/local/lib"
 
 server "CVZLACT001", :app, :web, :db, :primary => true
@@ -14,7 +10,6 @@ set :deploy_to,                  "/home/cvzprj/#{application}"
 set :user,                       "cvzprj"
 set :password,                   "prjcvz99"
 set :use_sudo,                   false
-set :rvm_type,                   :user
 set :rails_env,                  "production"
 set :passenger_port,             9000
 set :passenger_cmd,              "bundle exec passenger"
