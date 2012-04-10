@@ -1,3 +1,5 @@
+require 'bundler/capistrano'
+
 default_environment['LD_LIBRARY_PATH'] = "/usr/local/lib"
 
 server "CVZLACT001", :app, :web, :db, :primary => true
