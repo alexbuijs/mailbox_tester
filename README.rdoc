@@ -30,7 +30,7 @@ PRD:
   externId                : value will always be different
   status                  : value will always be different
   versie                  : attribute doesn't exist in acc db
-  tekenset                : V
+  tekenset                : value will always be different
   bericht_uuid            : V
   bericht_type            : V
   bericht_versie          : V
@@ -57,7 +57,7 @@ ACC:
   receiverType            : V
   externId                : value will always be different
   status                  : value will always be different
-  characterSet            : V
+  characterSet            : value will always be different
   messageId               : V
   messageName             : V
   messageType             : V

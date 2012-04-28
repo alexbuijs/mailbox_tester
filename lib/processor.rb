@@ -10,7 +10,6 @@ class Processor
     :betreftRetourbericht    => :retourMessage,
     :zenderType              => :senderType,
     :ontvangerType           => :receiverType,
-    :tekenset                => :characterSet,
     :bericht_uuid            => :messageId,
     :bericht_type            => :messageType,
     :bericht_versie          => :messageVersion,

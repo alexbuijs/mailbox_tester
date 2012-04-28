@@ -60,7 +60,7 @@ class AcceptatieMessage < ActiveRecord::Base
   end
 
   def content
-    Base64.decode64 acceptatie_message_content.try(:volledigeInhoud) rescue nil
+    (Base64.decode64 acceptatie_message_content.try(:volledigeInhoud)).force_encoding("utf-8") rescue nil
   end
 
   def return_message
