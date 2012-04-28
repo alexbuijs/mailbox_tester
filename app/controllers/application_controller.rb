@@ -44,10 +44,10 @@ class ApplicationController < ActionController::Base
   end
 
   def prdmessage
-    respond_with ProductieMessage.by_id(params[:id]).to_json(methods: :content).gsub!(/\\u([0-9a-z]{4})/) {|s| [$1.to_i(16)].pack("U")}
+    respond_with ProductieMessage.by_id(params[:id]).to_json(methods: :content).gsub(/\\u([0-9a-z]{4})/) {|s| [$1.to_i(16)].pack("U")}
   end
 
   def accmessage
-    respond_with AcceptatieMessage.by_id(params[:id]).to_json(methods: :content).gsub!(/\\u([0-9a-z]{4})/) {|s| [$1.to_i(16)].pack("U")}
+    respond_with AcceptatieMessage.by_id(params[:id]).to_json(methods: :content).gsub(/\\u([0-9a-z]{4})/) {|s| [$1.to_i(16)].pack("U")}
   end
 end
