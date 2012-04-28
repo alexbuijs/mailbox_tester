@@ -75,7 +75,7 @@ class ProductieMessage < ActiveRecord::Base
   end
 
   def content
-    productie_message_content.try(:volledigeInhoud).gsub(/\r/, '') rescue nil
+    productie_message_content.try(:volledigeInhoud).encode({ :universal_newline => true }) rescue nil
   end
 
   def return_message
